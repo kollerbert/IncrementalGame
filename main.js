@@ -3,39 +3,37 @@ var totalclick = 0;
 var totalclicksupgrade = 0;
 var automate1totalclick = 0;
 var costA1 = 10;
-var productionmultiplier1 =1;
-var productionmultiplier2 =1;
-var cps=0;
-
-
-
-
+var productionmultiplier1 = 1;
+var productionmultiplier2 = 1;
+var cps = 0;
 
 function Update() {
-    cps= automate1totalclick * (totalclick* 10)* (productionmultiplier2*productionmultiplier1);
+    cps = automate1totalclick * (totalclick * 10) * (productionmultiplier2 * productionmultiplier1);
     document.getElementById('dollars').innerHTML = dollar.toFixed(3);
     document.getElementById('totalclicks').innerHTML = totalclick;
     document.getElementById('cpss').innerHTML = cps.toFixed(7);
-    if (productionmultiplier>2){                                            //produktionmultiplier2 over time auf 1 reseten
-        productionmultiplier2=productionmultiplier2-0.0005;
-        document.getElementById('productionmultipliers').innerHTML = productionmultiplier2.toFixed(4);
-    }  
+    if (productionmultiplier2 > 2) {
+        //produktionmultiplier2 over time auf 1 reseten
+        productionmultiplier2 = productionmultiplier2 - 0.0005;
+        document.getElementById('productionmultipliers').innerHTML = productionmultiplier2.toFixed(
+            4
+        );
+    }
 }
 function CpsGutschreiben() {
-      dollar = dollar + cps;
-      document.getElementById('dollars').innerHTML = dollar.toFixed(3);
+    dollar = dollar + cps;
+    document.getElementById('dollars').innerHTML = dollar.toFixed(3);
 }
 
-
-function quest1(){
+function quest1() {
     document.getElementById('totalclicks').innerHTML = totalclick;
-    if (totalclick>=100){
+    if (totalclick >= 100) {
         // QUEST ZIEL einfügen
     }
 }
 function removeQuest() {
-    if (totalclick>=100){
-    document.getElementById("Quest1").style.display = "none";
+    if (totalclick >= 100) {
+        document.getElementById('Quest1').style.display = 'none';
     }
 }
 function clickMe() {
@@ -45,7 +43,7 @@ function clickMe() {
     document.getElementById('totalclicks').innerHTML = totalclick;
 }
 function hoverOverMe() {
-    productionmultiplier2=productionmultiplier2+0.001; 
+    productionmultiplier2 = productionmultiplier2 + 0.001;
     document.getElementById('productionmultiplier2s').innerHTML = productionmultiplier2.toFixed(4);
 }
 
@@ -59,12 +57,6 @@ function automate1TotalClick() {
         document.getElementById('dollars').innerHTML = dollar.toFixed(3);
     }
 }
-
-
-
-
-
-
 
 /*function automate2auto1{
  if (dollar > costA2){
@@ -84,8 +76,5 @@ window.setInterval(function() {
     Update();
     CpsGutschreiben();
 }, 1000);
-
-
-
 
 // next: LVL and Quest

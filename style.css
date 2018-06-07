@@ -1,18 +1,23 @@
 body {
     background: rgb(39, 39, 39)
 }
+
 .container {
     background: rgb(175, 175, 175)      
 }
+
 .textUpsideDown {
-transform: rotate(-180deg);
+    transform: rotate(-180deg);
 }
+
 .scaleWhileHover {
     transform: scale(1)
 }
+
 .scaleWhileHover:hover {
     transform: scale(2)
 }
+
 .clickbox {
     position: relative;
     background-color: red;
@@ -24,14 +29,16 @@ transform: rotate(-180deg);
     text-align: center;
     vertical-align:middle;
 }
-#divRotateBox             
-{
-width:100px;
-height:100px;
-text-align: center;
-background-color:greenyellow;
-border:3px solid black;
-transform:rotate(0deg);
--ms-transform:rotate(0deg); /* IE 9 */
--webkit-transform:rotate(0deg); /* Safari 3-8 */
+
+#divRotateBox {
+    width:100px;
+    height:100px;
+    text-align: center;
+    background-color:greenyellow;
+    border:3px solid black;
+    transform:rotate(0deg);
+}
+
+table tr td {
+    padding: 0.5rem 1rem;
 }

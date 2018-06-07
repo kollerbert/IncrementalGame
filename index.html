@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>IncrementalAnimed</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <script src="scrollbar.js"></script>
+        <script src="scrollbar2.js"></script>
+        <div class="row">
+            <div class="col-md-2">
+                <h3><b>Your Balances</b></h3>
+                <br />
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr style="background-color:#F3F3ED">
+                        <td>$</td>
+                        <td><span id="dollars">0</span></td>
+                    </tr>
+                    <tr style="background-color:#EAE127">
+                        <td>φ</td>
+                        <td><span id="totalclicks">0</span></td>
+                    </tr>
+                    <tr style="background-color:#1BDFED">
+                        <td>♠</td>
+                        <td>0</td>
+                    </tr>
+                    <tr style="background-color:#8664BA">
+                        <td>§</td>
+                        <td>0</td>
+                    </tr>
+                    <tr style="background-color:#1BC91A">
+                        <td>∞</td>
+                        <td>0</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-2">
+                <h3><b>Your Income</b></h3>
+                <br />
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr style="background-color:#F3F3ED">
+                        <td>$/s</td>
+                        <td><span id="cpss">0</span></td>
+                    </tr>
+                    <tr style="background-color:#EAE127">
+                        <td>φ</td>
+                        <td><span id="totalclicks">0</span></td>
+                    </tr>
+                    <tr style="background-color:#1BDFED">
+                        <td>♠</td>
+                        <td>0</td>
+                    </tr>
+                    <tr style="background-color:#8664BA">
+                        <td>§</td>
+                        <td>0</td>
+                    </tr>
+                    <tr style="background-color:#1BC91A">
+                        <td>∞</td>
+                        <td>0</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-1">.
+            </div>
+            <div class="col-md-1">.
+            </div>
+            <div class="col-md-1">.
+                <button onclick="clickMe()" type="button2" class="btn btn-secondary mb-4" class="clickboxscaleWhileHover" data-toggle="tooltip" data-placement="right" title="+1$">
+                    <b>ClickMe</b>
+                    <!--CLICK BUTTON-->
+                </button>
+                <button type="button2" class="btn btn-light mb-4" data-toggle="tooltip" data-placement="right" title="$/s">
+                    <!--CPS BUTTON-->
+                    Cps <span id="cpss">0</span>
+                </button>
+                <button type="button2" onclick="automate1TotalClick()" class="btn btn-light" data-toggle="tooltip" data-placement="right" title="$/s">
+                    <!--AUTOMATE BUTTON-->
+                    Automates: <span id="automate1totalclicks">0</span>
+                    <br /> Cost: <span id="costA1s">11</span>
+                </button>
+            </div>
+            <div class="col-md-1">.</div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1">
+                <div id="divRotateBox"><b>$</b>
+                    <br />
+                    <br />
+                    <br />
+                    <div class="textUpsideDown"><b>τ</b></div>
+                </div>
+                Rotate:
+                <br>
+                <input type="range" min="0" max="180" value="0" onchange="rotate(this.value)" />
+                <br> Efficiencyboost:
+                <br />
+                <span id="span1"><b>$</b> 100%</span>
+                <br />
+                <span id="span2"><b>τ</b> 0%</span>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1">
+                <div class="d-flex justify-content-end">
+                    <!-- AUSRICHTUNG RECHTS siehe https://getbootstrap.com/docs/4.0/utilities/flex/ -->
+                    <h2><b>LVL</b></h2> <span id="HIER ID EINFÜGEN"><h2><b>1</b></h2></span>
+                    <!--LVL-->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div id="CSStransforms">
+                    <div onclick="clickMe()" class="clickbox scaleWhileHover">
+                        <h1>!</h1></div>
+                    <!--ClickDIVbutton-->
+                </div>
+            </div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+    <script src="anime.min.js"></script>
+    <script src="main.js"></script>
+    <script src="rotate.js"></script>
+</body>
+
+</html>
