@@ -13,64 +13,57 @@
     <div class="container">
         <script src="scrollbar.js"></script>
         <script src="scrollbar2.js"></script>
-        <div class="row">
-            <div class="col-md-2">
+        <div class="row mb-4">
+            <div class="col-md-5">
                 <h3><b>Your Balances</b></h3>
                 <br />
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <tr style="background-color:#F3F3ED">
+                <table class="table">
+                    <tr>
+                        <th colspan="2">
+                            <strong>Your Balances</strong>
+                        </th>
+                        <th colspan="2">
+                            <strong>Your Income</strong>
+                        </th>
+                    </tr>
+                    <tr class="bg-white">
                         <td>$</td>
                         <td><span id="dollars">0</span></td>
-                    </tr>
-                    <tr style="background-color:#EAE127">
-                        <td>φ</td>
-                        <td><span id="totalclicks">0</span></td>
-                    </tr>
-                    <tr style="background-color:#1BDFED">
-                        <td>♠</td>
-                        <td>0</td>
-                    </tr>
-                    <tr style="background-color:#8664BA">
-                        <td>§</td>
-                        <td>0</td>
-                    </tr>
-                    <tr style="background-color:#1BC91A">
-                        <td>∞</td>
-                        <td>0</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="col-md-2">
-                <h3><b>Your Income</b></h3>
-                <br />
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <tr style="background-color:#F3F3ED">
+
                         <td>$/s</td>
                         <td><span id="cpss">0</span></td>
                     </tr>
-                    <tr style="background-color:#EAE127">
+                    <tr class="bg-yellow">
+                        <td>φ</td>
+                        <td><span id="totalclicks">0</span></td>
+
                         <td>φ</td>
                         <td><span id="totalclicks">0</span></td>
                     </tr>
-                    <tr style="background-color:#1BDFED">
+                    <tr class="bg-teal">
+                        <td>♠</td>
+                        <td>0</td>
+
                         <td>♠</td>
                         <td>0</td>
                     </tr>
-                    <tr style="background-color:#8664BA">
+                    <tr class="bg-purple">
+                        <td>§</td>
+                        <td>0</td>
+
                         <td>§</td>
                         <td>0</td>
                     </tr>
-                    <tr style="background-color:#1BC91A">
+                    <tr class="bg-green">
+                        <td>∞</td>
+                        <td>0</td>
+
                         <td>∞</td>
                         <td>0</td>
                     </tr>
                 </table>
             </div>
-            <div class="col-md-1">.
-            </div>
-            <div class="col-md-1">.
-            </div>
-            <div class="col-md-1">.
+            <div class="col-md-3">.
                 <button onclick="clickMe()" type="button2" class="btn btn-secondary mb-4" class="clickboxscaleWhileHover" data-toggle="tooltip" data-placement="right" title="+1$">
                     <b>ClickMe</b>
                     <!--CLICK BUTTON-->
@@ -85,9 +78,7 @@
                     <br /> Cost: <span id="costA1s">11</span>
                 </button>
             </div>
-            <div class="col-md-1">.</div>
-            <div class="col-md-1"></div>
-            <div class="col-md-1">
+            <div class="col-md-2">
                 <div id="divRotateBox"><b>$</b>
                     <br />
                     <br />
@@ -103,8 +94,7 @@
                 <br />
                 <span id="span2"><b>τ</b> 0%</span>
             </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-1">
+            <div class="col-md-2">
                 <div class="d-flex justify-content-end">
                     <!-- AUSRICHTUNG RECHTS siehe https://getbootstrap.com/docs/4.0/utilities/flex/ -->
                     <h2><b>LVL</b></h2> <span id="HIER ID EINFÜGEN"><h2><b>1</b></h2></span>

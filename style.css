@@ -42,3 +42,19 @@ body {
 table tr td {
     padding: 0.5rem 1rem;
 }
+
+.bg-yellow {
+    background-color: #EAE127;
+}
+
+.bg-teal {
+    background-color:#1BDFED
+}
+
+.bg-purple {
+    background-color:#8664BA
+}
+
+.bg-green {
+    background-color:#1BC91A
+}
