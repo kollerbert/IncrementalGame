@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IncrementalAnimed</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body><samp>
+    <div class="container">
+        <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#quest">Quests</a></li>
+            <li><a href="#prestige">Prestige</a></li>
+            <li><a href="#statistics">Statistics</a></li>
+            <li><a href="#statistics"><span id="times">1.Januar 3</span></a></li>
+        </ul>
+        <div style="padding-top: 9rem">
+        <script src="scrollbar.js"></script>
+        <script src="scrollbar2.js"></script>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-5">
+                <h3><b>Your Balances</b></h3>
+                <br />
+                <table class="table">
+                    <tr>
+                        <th colspan="2">
+                            <strong>Your Balances</strong>
+                        </th>
+                        <th colspan="2">
+                            <strong>Your Income</strong>
+                        </th>
+                    </tr>
+                    <tr class="bg-white">
+                        <td>$</td>
+                        <td><span id="dollars">0</span></td>
+
+                        <td>$/s</td>
+                        <td><span id="cpss">0</span></td>
+                    </tr>
+                    <tr class="bg-yellow">
+                        <td>φ</td>
+                        <td><span id="totalclicks">0</span></td>
+
+                        <td>φ</td>
+                        <td><span id="totalclicks">0</span></td>
+                    </tr>
+                    <tr class="bg-teal">
+                        <td>Ξ</td>
+                        <td><span id="xis">0</span></td>
+
+                        <td>♠</td>
+                        <td>0</td>
+                    </tr>
+                    <tr class="bg-purple">
+                        <td>§</td>
+                        <td>0</td>
+
+                        <td>§</td>
+                        <td>0</td>
+                    </tr>
+                    <tr class="bg-green">
+                        <td>∞</td>
+                        <td>0</td>
+
+                        <td>∞</td>
+                        <td>0</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-3">.
+                <button onclick="clickMe()">
+                    <b>ClickMe</b>
+                    <!--CLICK BUTTON-->
+                </button>
+                <br />
+                <br /> 
+                <button type="2" onclick="tickspeedUpgrade()" class="btn btn-secondary mb-4">
+                        Tickspeed: <span id="tickspeeds">1000</span><br />
+                        <!--tickspeedupgrade-->
+                        *0.99
+                <br />
+                Cost <span id="tickspeedcosts">100</span>
+                </button>
+                <br />
+                <br />
+                <button type="2" onclick="interestUpgrade()" class="btn btn-secondary mb-4">
+                        Interest Rate: <span id="interestrates">0</span>%/day<br />
+                        +0.0005
+                        <br />
+                        Cost <span id="interestupgradecosts">0</span>
+                        </button>
+
+            <!--current interest rate-->
+            </div>
+            <div class="col-md-2">
+                <div id="divRotateBox"><b>$</b>
+                    <br />
+                    <br />
+                    <br />
+                    <div class="textUpsideDown"><b>ζ</b></div>
+                </div>
+                Rotate:
+                <br>
+                <input type="range" min="0" max="180" value="0" onchange="rotate(this.value)" />
+                <br> Efficiencyboost:
+                <br />
+                <span id="rotboost1"><b>$</b> 100%</span>
+                <br />
+                <span id="rotboost2"><b>ζ</b> 0%</span>
+            </div>
+            <div class="col-md-2">
+                <div class="d-flex justify-content-end">
+                    <!-- AUSRICHTUNG RECHTS siehe https://getbootstrap.com/docs/4.0/utilities/flex/ -->
+                    <h2><b>LVL <span id="lvls">1</b></h2></span>
+                    <!--LVL-->
+                    <br />
+                </div>
+                <div class="d-flex justify-content-end">
+                    <div id="lvlbarbackground">
+                        <div id="lvlbarbalken"></div>                               <!--LVLBAR-->
+                    </div>
+                    </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div onmousemove="hoverCrit()" class="cpscrit"></div>
+                <!--HOVER MULTIPLIER-->
+                <br />
+                <span id="hovercrits">1.0000</span>
+            </div>
+        </div>
+         <div class="row">
+            <div class="col-md-4">   
+                <div class="interest">
+                    <div onclick="automateInterestUpgrade1()" class="row"><b>Interest</b><div class="upgraderdy1" ></div></div>
+                    <div id="upgradebarbackground1">
+                        <div id="upgradebarbalken1"></div>                               <!--UPGRADEBAR-->
+                    </div>
+                    <hr>                   
+                    <div onclick="automateInterestUpgrade2()" class="row"><b>Interest²</b><div class="upgraderdy2" ></div></div>
+                    <div id="upgradebarbackground2">
+                            <div id="upgradebarbalken2"></div>                               <!--UPGRADEBAR-->
+                    </div>
+                    <hr>
+                    <div onclick="automateInterestUpgrade3()" class="row"><b>Interest³</b><div class="upgraderdy3" ></div></div>
+                    <div id="upgradebarbackground2">
+                            <div id="upgradebarbalken3"></div>                               <!--UPGRADEBAR-->
+                    </div>
+                    <hr>
+                    <div onclick="automateInterestUpgrade4()" class="row"><b>Interest⁴</b><div class="upgraderdy4" ></div></div>
+                    <div id="upgradebarbackground2">
+                            <div id="upgradebarbalken4"></div>                               <!--UPGRADEBAR-->
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-md-3 interestupgrade">
+                <div onclick="automateInterest1()">
+                    <!--AUTOMATE INTEREST BUTTONS(1 - 4)-->
+                    <span id="costA1s">100</span>$
+                    <br />
+                    (<span id="automateinteresttotal1s">0</span>)<hr>
+                </div>
+                <div onclick="automateInterest2()">
+                    <span id="costA2s">100000</span>$
+                    <br />
+                    (<span id="automateinteresttotal2s">0</span>)<hr>
+                </div>
+                <div onclick="automateInterest3()">
+                    <span id="costA3s">100000000</span>$
+                    <br />
+                    (<span id="automateinteresttotal3s">0</span>)<hr>
+                </div>
+                <div onclick="automateInterest4()">
+                    <span id="costA4s">100000000000</span>$
+                    <br />
+                    (<span id="automateinteresttotal4s">0</span>)<hr>
+                </div>
+            </div>
+            <div class="col-md-4">
+        <!--            <div id="upgradebarbackground">
+                            <div id="upgradebarbalken"></div>                               UPGRADEBAR
+                        </div> -->
+
+
+
+
+                
+                   Counter<span id="counters">0</span> 
+                   Current Investment <span id="investments">0</span> 
+                    <div id="progressbarU">
+                        <div id="progressbar"></div>                                        <progressbar
+                    </div>
+                    <input type="button" id="bank10" onclick="bank10Investment()" value="10">
+                    <input type="button" id="bank50" onclick="progressBar()" value="50">
+                    <input type="button" id="bank90" onclick="progressBar()" value="90">-->
+    </div></samp>
+    <script src="jquery-impromptu.js"></script>
+    <script src="anime.min.js"></script>
+    <script src="main.js"></script>
+    <script src="rotate.js"></script>
+    <script src="lvl.js"></script>
+</body>
+</html>
