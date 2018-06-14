@@ -1,18 +1,21 @@
 var dollar = 0;
+var dollaralltime=0;
 var xi = 0;
 var totalclick = 0;
 var automateinteresttotal1 = 0;
 var automateinteresttotal2 = 0;
 var automateinteresttotal3 = 0;
 var automateinteresttotal4 = 0;
-var costA1 = 100;
-var costA2 = 100000;
-var costA3 = 100000000;
-var costA4 = 100000000000;
+var costA1 = 1;
+var costA2 = 1;
+var costA3 = 1;
+var costA4 = 1;
 var cps = 0;
 var hovercrit=1;
+var hovercrittemp=0;
 var tickspeed = 1000;
-var tickspeedcost = 100;
+var tickspeedcost = 1;
+var tickspeedcountertemp=0;
 var interestrate=0.001;
 var interestupgrade =0;
 var interestupgradecost =1000;
@@ -42,33 +45,48 @@ var lastnum2 = 0;
 var lastnum3 = 0;
 var lastnum4 = 0;
 function Update() {
-    cps = (totalclick*automateinteresttotal1 * automateinterestmultiplier1 *interestrate*jahrmultiplier);
+    cps = (totalclick*automateinteresttotal1 * automateinterestmultiplier1 *interestrate*jahrmultiplier*inflation);
     document.getElementById('dollars').innerHTML = dollar.toFixed(3);
     document.getElementById('totalclicks').innerHTML = totalclick;
     document.getElementById('cpss').innerHTML = cps.toFixed(3);
     document.getElementById('automateinteresttotal1s').innerHTML = automateinteresttotal1;
     document.getElementById('hovercrits').innerHTML = hovercrit.toFixed(4);
     document.getElementById('interestrates').innerHTML = interestrate.toFixed(4);
+    document.getElementById('lvlcoinss').innerHTML = lvlcoins.toFixed(0);
     document.getElementById('interestupgradecosts').innerHTML = interestupgradecost.toFixed(0);
-    document.getElementById('investments').innerHTML = investment.toFixed(0);
-    document.getElementById('counters').innerHTML = counter.toFixed(0);
+    //document.getElementById('investments').innerHTML = investment.toFixed(0);
+    //document.getElementById('counters').innerHTML = counter.toFixed(0);
     document.getElementById('lvls').innerHTML = lvl.toFixed(0);
     document.getElementById('xis').innerHTML = xi.toFixed(3);
-    if (hovercrit > 2) {
+    if (hovercrit > 1) {
         //produktionmultiplier2 over time auf 1 reseten
         hovercrit = hovercrit - 0.0005;
     }
 }
 function clickMe() {
-    dollar = dollar + 1;
+    if (upgradecount1!=0){
+        if (critcountertemp>=100){
+            dollar = dollar + 2;
+            critcountertemp = critchance;
+        }
+        else {
+            critcountertemp = critcountertemp + critchance;
+            dollar = dollar + 1;
+        }
+    }
+    else{
+        dollar = dollar + 1;
+    }
+    dollaralltime = dollaralltime +1;
     totalclick = totalclick + 1;
-    xi = xi + 0.001;
+    xi = xi + 0.1;
     document.getElementById('dollars').innerHTML = dollar.toFixed(3);
     document.getElementById('totalclicks').innerHTML = totalclick;
     document.getElementById('xis').innerHTML = xi.toFixed(3);
 }
 function CpsGutschreiben() {
     dollar = dollar + cps ;
+    dollaralltime = dollaralltime + cps;
 }
 function automateGutschreiben() {
     if (automateinteresttotal2>0){
@@ -136,7 +154,6 @@ function automateInterest4() {
 function date(){
     if (totalclick>0){
         tag = tag + 1;
-    
         if (tag > 30){
             monatcounter = monatcounter + 1;
             tag =1;
@@ -179,7 +196,6 @@ function date(){
                 jahr = jahr + 1;
                 jahrmultiplier = jahrmultiplier*1.1;
             }
-    
         }
         time = tag + '.' + monat + ' ' + jahr;
         document.getElementById('times').innerHTML= time;
@@ -196,6 +212,7 @@ function interestUpgrade(){
 }
 function hoverCrit() {
     hovercrit = hovercrit + 0.001;
+    hovercrittemp = hovercrittemp + 0.001;
 }
 function tickspeedUpgrade(){
     if (dollar>tickspeedcost){
@@ -205,6 +222,9 @@ function tickspeedUpgrade(){
     document.getElementById('tickspeeds').innerHTML=tickspeed.toFixed(0);
     document.getElementById('tickspeedcosts').innerHTML=tickspeedcost.toFixed(1);
     document.getElementById('dollars').innerHTML=dollar.toFixed(3);
+        if (tickspeedcountertemp==0){
+            tickspeedcountertemp=1;
+        }
     }
 }
 function animeUpgradeRdy1(){
@@ -291,8 +311,6 @@ function automateInterestUpgrade4(){
         xi = xi -1;
     }
 }
-
-
 function upgradeBar1(){
     upgradeprozent1 = automateinteresttemp1*10;
     lastnum1 = upgradeprozent1.toString().charAt( upgradeprozent1.length);
@@ -337,43 +355,31 @@ function upgradeBar4(){
             elem.style.width = lastnum4*10 + '%' 
         }
 }
-
-
-
-/*function upgradeBar2(){
-    upgradeprozent2 = automateinteresttemp2*10;
-    lastnum2 = upgradeprozent2.toString().charAt( upgradeprozent2.length);
-    var elem = document.getElementById("upgradebarbalken2");
-       if (upgradeprozent2 >= 100){
-            elem.style.width = 100 + '%'
-        }
-        else{
-            elem.style.width = lastnum2*10 + '%' 
-         }
+function show(elementID) {
+    // error wenn page nicht vorhanden
+    var ele = document.getElementById(elementID);
+    if (!ele) {
+        alert("no such element");
+        return;
     }
-function upgradeBar3(){
-    upgradeprozent3 = automateinteresttemp3*10;
-    lastnum3 = upgradeprozent3.toString().charAt( upgradeprozent3.length);
-    var elem = document.getElementById("upgradebarbalken3");
-       if (upgradeprozent3 >= 100){
-            elem.style.width = 100 + '%'
-        }
-        else{
-            elem.style.width = lastnum3*10 + '%' 
-         }
+
+    // alle pages hiden
+    var pages = document.getElementsByClassName('page');
+    for(var i = 0; i < pages.length; i++) {
+        pages[i].style.display = 'none';
     }
-    function upgradeBar4(){
-        upgradeprozent4 = automateinteresttemp4*10;
-        lastnum4 = upgradeprozent4.toString().charAt( upgradeprozent4.length);
-        var elem = document.getElementById("upgradebarbalken1");
-           if (upgradeprozent4 >= 100){
-                elem.style.width = 100 + '%'
-            }
-            else{
-                elem.style.width = lastnum4*10 + '%' 
-             }
-        }
-*/
+
+    // die gewollte page showen
+    ele.style.display = 'block';
+}
+
+/*function quest1() {
+    if (totalclick >= 1) {
+        document.getElementsByClassName('quest1').style.display = none;
+    }
+}*/
+
+
 
 
 
@@ -385,11 +391,13 @@ window.setInterval(function() {
     // funktionen 1x pro Sekunden Updaten (CPS)
     date();
     lvlbar();
+    progressBar();
     upgradeBar1();
     upgradeBar2();
     upgradeBar3();
     upgradeBar4();
-    console.log('log ' + lastnum1);
+    questupdate();
+    console.log('log ' + progress);
 }, 1000);
 
 window.setInterval(function() {
@@ -416,7 +424,7 @@ window.setInterval(function() {
 --> buildingproduciton*2 pro 10 upgrades
 
 --> investments die über Zeit das invetierte Cash multiplizieren 
--->upgrade totalclicks/10 dafür income*10 --> active playing wieder mehr worth
+
 
 
 
@@ -431,14 +439,11 @@ window.setInterval(function() {
 
 /*function progressBar() {
     var elem = document.getElementById("progressbar");   
-    var width = 0;
-    var id = setInterval(frame, 10);
-    function frame() {
       if (width == 100) {
         clearInterval(id);
       } else {
         width++; 
-        elem.style.width = width + '%'; 
+        elem.style.width = (tag + monat*30)/3.6 + '%'; 
       }
     }
   }

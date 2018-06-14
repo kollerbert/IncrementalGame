@@ -5,12 +5,16 @@ body {
 .container {
     background: rgb(175, 175, 175)      
 }
+.container2 {
+    background: rgb(165, 35, 35)      
+}
+
 table tr td {
     padding: 0.5rem 1rem;
 }
 
 .bg-yellow {
-    background-color: #EAE127;
+    background-color: rgba(28, 85, 2, 0.664);
 }
 
 .bg-teal {
@@ -90,62 +94,20 @@ div.investment {
 div.investment:onclick {
     height: 200px;
 }
-  #progressbar {
-    background-color: #4CAF50;
-    width: 0px;
-    height: 30px;
+#progressbar {
+    background-color: rgba(0, 2, 146, 0.315);
+    width: 0%;
+    height: 1.5rem;
     position: absolute;
-    margin-bottom: 4px;
+
   }
-  #progressbarU {
+#progressbarbox {
     width: 100%;
-    height: 30px;
+    height: 1.5rem;
     position: relative;
     background-color: #ddd;
-    margin-bottom: 4px;
+
   }
-
-
-
-
-
-
-  
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgb(0, 0, 0);
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
-li {
-    float: left;
-}
-li2 {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover:not(.active) {
-    background-color: rgb(110, 101, 101);
-}
-
-.active {
-    background-color: #4CAF50;
-}
-
-
 .upgraderdy1 {
     position: relative;
     margin-top: 1rem;
@@ -257,47 +219,55 @@ li a:hover:not(.active) {
     position: relative;
     background-color: #ddd;
     border-radius: 10px 10px 10px 10px;
-  }
+  }  
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
 
-/* Tooltip container */
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    top: 0;
+    width: 100%;
 }
-
-/* Tooltip text */
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: #555;
-    color: #fff;
+li {
+    float: left;
+}
+li span {
+    display: block;
+    color: white;
     text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-
-    /* Position the tooltip text */
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -60px;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover:not(.active) {
+    background-color: rgb(110, 101, 101);
+}
+.active {
+    background-color: #4CAF50;
 }
 
-/* Tooltip arrow */
-.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
+
+.ml1 {
+    margin-left: 1rem;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
+.wrappercenter {
+  position: relative;
+  left: 17%;
+}
+.quest {
+    font-size: 15px;
+    text-align:center;
+    width: 9rem;
+    height: 9rem;
+    background-color: rgba(96, 139, 98, 0.555);
+
+}
+.upgrade{
+        font-size: 10px;
+        width: 9rem;
+        height: 9rem;
+        background-color: rgba(245, 65, 236, 0.404);
+        border:1px solid black;
 }
